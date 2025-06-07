@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DANA KAGET</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom right, #0099ff, #66ccff);
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin: 0;
+    }
+
+    .card {
+      background: white;
+      color: black;
+      border-radius: 15px;
+      padding: 25px 15px;
+      max-width: 400px;
+      width: 100%;
+      margin: 0 auto;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+      font-size: 1.8em;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1em;
+      margin: 10px 0;
+    }
+
+    .btn {
+      background-color: #00c853;
+      color: white;
+      padding: 14px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1em;
+      cursor: pointer;
+      width: 100%;
+      max-width: 300px;
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #009624;
+    }
+
+    .loading {
+      margin-top: 15px;
+      font-style: italic;
+      font-size: 0.95em;
+      display: none;
+    }
+
+    #prank-image {
+      display: none;
+      margin-top: 25px;
+      width: 100%;
+      max-width: 100%;
+      border-radius: 12px;
+      animation: pop 0.5s ease forwards;
+    }
+
+    @keyframes pop {
+      0% {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      h1 {
+        font-size: 1.5em;
+      }
+
+      .btn {
+        font-size: 0.95em;
+        padding: 12px;
+      }
+
+      .card {
+        padding: 20px 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Selamat! Kamu Mendapat Dana Kaget 🎉</h1>
+    <p>Jumlah: <strong>Rp 200.000</strong></p>
+    <button class="btn" onclick="claimDana()">Ambil Dana</button>
+    <p class="loading" id="loading">Memproses dana kamu...</p>
+    <img
+      id="prank-image"
+      src="img/hahai.jpg"
+      alt="PRANK! Gak ada dananya"
+    />
+  </div>
+
+  <script>
+    function claimDana() {
+      const btn = document.querySelector('.btn');
+      const loading = document.getElementById('loading');
+      const prankImage = document.getElementById('prank-image');
+
+      btn.disabled = true;
+      loading.style.display = 'block';
+
+      setTimeout(() => {
+        loading.style.display = 'none';
+        prankImage.style.display = 'block';
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
